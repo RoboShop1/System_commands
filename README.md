@@ -26,3 +26,7 @@ INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
 
 sudo cat /var/lib/cloud/instances/$INSTANCE_ID/user-data.txt
 ```
+## xargs with one-arg at a time
+```
+echo "qa prod uat" | xargs  -n1 -I {} bash -c 'kubectl delete ns {}'
+```
