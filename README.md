@@ -10,3 +10,9 @@ PROMPT_COMMAND='PS1_CMD1=$(ip route get 1.1.1.1 | awk -F"src " '"'"'NR == 1{ spl
 http://169.254.169.254/latest/user-data
 http://169.254.169.254/latest/meta-data
 ```
+## Get instance ID
+```
+INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+
+sudo cat /var/lib/cloud/instances/$INSTANCE_ID/user-data.txt
+```
