@@ -30,3 +30,8 @@ sudo cat /var/lib/cloud/instances/$INSTANCE_ID/user-data.txt
 ```
 echo "qa prod uat" | xargs  -n1 -I {} bash -c 'kubectl delete ns {}'
 ```
+
+## shift & unshifting in shell arrays
+```
+
+```
