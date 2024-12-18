@@ -1,5 +1,6 @@
 ## Terraform code is not a piece of code, it's actually bounds to resource|infra|service in backend  
 ## why map? not count having a example of security group creation.
+### count  always goes through index. map always goes through names.
 
 ### user data should always keep a map not count
 ### functions make your not to break.
