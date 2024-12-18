@@ -43,7 +43,7 @@ Dave leaves the line
 shift people
 
 ```
-
+## POP in shell array
 ### remove last element in array 
 ```
 num=(1 2 3 4 5 6)
