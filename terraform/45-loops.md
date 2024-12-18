@@ -23,7 +23,13 @@
 ## Loops with the string directive
 ```
 %{ for <ITEM> in <COLLECTION> }<BODY>%{ endfor }
----------------------------------
+
+%{ if <CONDITION> }<TRUEVAL>%{ endif }
+
+%{ if <CONDITION> }<TRUEVAL>%{ else }<FALSEVAL>%{ endif }
+```
+# Example-1
+```
 variable "names" {
   description = "Names to render"
   type        = list(string)
@@ -38,7 +44,7 @@ Outputs:
 
 for_directive = "neo, trinity, morpheus, "
 ```
-
+# Example-1
 ```
 output "for_directive_index" {
   value = "%{ for i, name in var.names }(${i}) ${name}, %{ endfor }"
@@ -47,4 +53,40 @@ output "for_directive_index" {
 Outputs:
 
 for_directive_index = "(0) neo, (1) trinity, (2) morpheus, "
+```
+
+# Example
+```
+
+output "for_directive_index_if" {
+  value = <<EOF
+%{ for i, name in var.names }
+  ${name}%{ if i < length(var.names) - 1 }, %{ endif }
+%{ endfor }
+EOF
+}
+
+Outputs:
+
+for_directive_index_if = <<EOT
+
+  neo,
+
+  trinity,
+
+  morpheus
+
+
+EOT
+
+# solution of white-spaces
+
+output "for_directive_index_if_strip" {
+  value = <<EOF
+%{~ for i, name in var.names ~}
+${name}%{ if i < length(var.names) - 1 }, %{ endif }
+%{~ endfor ~}
+EOF
+}
+
 ```
