@@ -90,3 +90,10 @@ EOF
 }
 
 ```
+
+## Loops with element access
+```
+  records = [aws_instance.main[count.index]["private_ip"]]
+  records = [element(aws_instance.main,count.index)["private_ip"]]
+  records = [aws_instance.main.*.private_ip[count.index]
+```
