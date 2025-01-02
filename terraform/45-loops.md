@@ -102,7 +102,7 @@ EOF
 ```
 
 ## loops output with list of map
-````
+```
  [*] with element function
  .*. with direct index
 ```
