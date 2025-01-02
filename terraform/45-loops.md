@@ -100,3 +100,9 @@ EOF
   records = [element(aws_instance.main,count.index)["private_ip"]]
   records = [aws_instance.main.*.private_ip[count.index]
 ```
+
+## loops output with list of map
+````
+[*] with element function
+.*. with direct index
+```
