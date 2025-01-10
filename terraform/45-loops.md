@@ -106,3 +106,9 @@ EOF
  [*] with element function
  .*. with direct index
 ```
+
+```
+output "subnets_names" {
+  value = [ for i,k in module.vpc-dev: i if can(regex(".*subnets",i))]
+}
+```
