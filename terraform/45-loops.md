@@ -119,3 +119,11 @@ locals {
   subnets = { for i,k in module.vpc-dev: i => k.*.id if can(regex(".*subnets",i))}
 }
 ```
+
+```
+  subnet_id               = <<EOF
+%{~ for name in module.vnet.virtual_network.subnet  ~}
+%{ if name["name"] == each.key }${name["id"]}%{ endif }
+%{~ endfor ~}
+EOF
+```
