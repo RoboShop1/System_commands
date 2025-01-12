@@ -106,3 +106,24 @@ EOF
  [*] with element function
  .*. with direct index
 ```
+
+```
+output "subnets_names" {
+  value = [ for i,k in module.vpc-dev: i if can(regex(".*subnets",i))]
+}
+```
+
+## Example-2
+```
+locals {
+  subnets = { for i,k in module.vpc-dev: i => k.*.id if can(regex(".*subnets",i))}
+}
+```
+
+```
+  subnet_id               = <<EOF
+%{~ for name in module.vnet.virtual_network.subnet  ~}
+%{ if name["name"] == each.key }${name["id"]}%{ endif }
+%{~ endfor ~}
+EOF
+```
