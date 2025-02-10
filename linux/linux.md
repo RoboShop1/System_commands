@@ -68,7 +68,18 @@ done
 ```
 
 
-
+### Parameter expansion
+```
+1. Basic Variable Substitution
+2. Default Values
+3. Error Message if Unset
+4. Alternative Value
+5. Substring Extraction
+6. Length of a Variable
+7. Pattern Matching and String Removal
+8. Search and Replace
+8. Search and Replace
+```
 
 
 
